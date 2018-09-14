@@ -1,0 +1,24 @@
+{
+    "status":0,
+    "msg":"",
+    "result":[
+        {
+            "productId":10001,
+            "productName":"小米6",
+            "productPrice":2999,
+            "productImg":"1.jpg"
+        },
+        {
+            "productId":10002,
+            "productName":"音响",
+            "productPrice":1999,
+            "productImg":"2.jpg"
+        },
+        {
+            "productId":10003,
+            "productName":"空气净化器",
+            "productPrice":3999,
+            "productImg":"3.jpg"
+        }
+    ]
+}
