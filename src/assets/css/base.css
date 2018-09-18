@@ -824,9 +824,13 @@ a:hover {
   text-transform: uppercase;
   letter-spacing: .25em;
   white-space: nowrap;
+  width: 40%;
   margin-top: 0!important;
 }
-
+.btn:hover, .btn[href]:hover{
+  background: #d1434a;
+  color: #fff;
+}
 /*.btn:hover, .btn[href]:hover {
   background-color: #ffe5e6;
   -webkit-transition: all .3s ease-out;
@@ -2180,7 +2184,7 @@ html {
 }
 
 .md-modal .md-modal-inner {
-  padding: 60px 50px;
+  padding: 30px 30px;
 }
 
 .md-modal .btn-wrap {
@@ -2207,6 +2211,9 @@ html {
 
 .md-modal .confirm-tips {
   min-height: 5.65em;
+  overflow: hidden;
+  padding-top: 30px;
+  font-size: 16px;
 }
 
 .md-modal .alert-tips {

@@ -404,7 +404,14 @@
   -ms-flex: 1;
   flex: 1;
 }
-
+.accessory-result .accessory-list-wrap .main {
+  padding: 10px;
+  overflow: hidden;
+}
+.accessory-result .accessory-list-wrap svg {
+  width: 10px;
+  height: 10px ;
+}
 .filter-nav {
   height: 55px;
   line-height: 55px;
@@ -578,4 +585,10 @@
     top: 0;
     padding-top: 20px;
   }
+}
+
+.loadMore {
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
 }

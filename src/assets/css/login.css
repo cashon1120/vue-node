@@ -108,7 +108,6 @@ a {
   background: 0 0!important;
 }
 .md-title{
-  position: absolute;
   top: 14px;
   line-height: 24px;
   padding: 8px 0;
@@ -119,6 +118,7 @@ a {
 }
 .login-wrap{
   margin-top:30px;
+  text-align: center;
 }
 .md-content .btn-login{
   display: block;
