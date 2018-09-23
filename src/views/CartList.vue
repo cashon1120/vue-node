@@ -51,7 +51,7 @@
                 </div>
                 <div class="cart-tab-5">
                   <div class="cart-item-opration">
-                    <a href="javascript:;" class="item-edit-btn" @click="delCartConfirm(item.productId)">
+                    <a href="javascript:;" class="item-edit-btn" @click="delCartConfirm(item)">
                       删除
                     </a>
                   </div>
@@ -108,7 +108,7 @@ export default {
     return {
       cartList: [],
       mdCartShow: false,
-      delProductId: 0
+      delItem: {}
     };
   },
   mounted() {
@@ -153,21 +153,22 @@ export default {
         }
       });
     },
-    delCartConfirm(id) {
+    delCartConfirm(item) {
       this.mdCartShow = true;
-      this.delProductId = id;
+      this.delItem = item;
     },
     //删除
     delCart(id) {
-      this.Axios.post("/users/cartDel", { productId: this.delProductId }).then(
-        response => {
-          let res = response.data;
-          if (res.status == 0) {
-            this.mdCartShow = false;
-            this.init();
-          }
+      this.Axios.post("/users/cartDel", {
+        productId: this.delItem.productId
+      }).then(response => {
+        let res = response.data;
+        if (res.status == 0) {
+          this.mdCartShow = false;
+          this.$store.commit("updateCartCount", -this.delItem.productNum);
+          this.init();
         }
-      );
+      });
     },
     //关闭模态框
     closeModal() {
@@ -175,14 +176,18 @@ export default {
     },
     //编辑
     editItem(flag, item) {
+      let num = 0;
       if (flag == "add") {
         item.productNum++;
+        num = 1;
       }
       if (flag == "minus") {
         if (item.productNum > 1) {
           item.productNum--;
+          num = -1;
         }
       }
+      this.$store.commit("updateCartCount", num);
       if (flag == "checked") {
         if (item.checked == "1") {
           item.checked = "0";
@@ -215,9 +220,9 @@ export default {
       );
     },
     //跳转到下一步
-    nextStep(){
-      if (this.countChecked>0){
-        this.$router.push('/address')
+    nextStep() {
+      if (this.countChecked > 0) {
+        this.$router.push("/address");
       }
     }
   }

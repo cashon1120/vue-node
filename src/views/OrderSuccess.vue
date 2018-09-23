@@ -7,7 +7,7 @@
         <div class="container">
             <div class="page-title-normal">
                 <h2 class="page-title-h2">
-                    <span>check out</span>
+                    <span>订单信息</span>
                 </h2>
             </div>
             <!-- 进度条 -->
